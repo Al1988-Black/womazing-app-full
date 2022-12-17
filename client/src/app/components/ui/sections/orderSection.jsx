@@ -126,7 +126,6 @@ const OrderSection = ({ cartProductList, subTotalPrice }) => {
             city: city.name
         };
         const idOrder = await dispatch(createOrder(newData));
-        console.log(idOrder);
         cartProductList.forEach((cart) => {
             const {
                 cartId,

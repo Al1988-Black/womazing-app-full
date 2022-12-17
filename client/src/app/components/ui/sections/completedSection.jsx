@@ -19,7 +19,7 @@ const CompletedSection = () => {
                     </div>
                     <div className="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end">
                         <Link
-                            to="/shop"
+                            to="/"
                             className="btn-pr d-block btn-pr_completed"
                         >
                             Перейти на главную

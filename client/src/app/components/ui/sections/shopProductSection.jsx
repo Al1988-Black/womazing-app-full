@@ -4,12 +4,14 @@ import { paginate } from "../../../utils/paginate";
 import GroupList from "../../common/groupList";
 import Pagination from "../../common/pagination";
 import ProductCard from "../productCard";
+import _ from "lodash";
 import { useSelector } from "react-redux";
 import { getProducts, getProductsLoadingStatus } from "../../../store/products";
 import {
     getCategoriesLoadingStatus,
     getCategories
 } from "../../../store/categories";
+import SelectSort from "../../common/selectSort";
 
 const ShopProductSection = () => {
     const isLoadingCategory = useSelector(getCategoriesLoadingStatus());
@@ -22,15 +24,70 @@ const ShopProductSection = () => {
         const params = useParams();
         const { categoryId } = params;
         const [currentPage, setCurrentPage] = useState(1);
+        const sortOptions = [
+            {
+                label: "Новика max",
+                value: "newDesk",
+                path: "newIs",
+                order: "desc"
+            },
+            {
+                label: "Новинка min",
+                value: "newAsk",
+                path: "newIs",
+                order: "ask"
+            },
+            {
+                label: "По цене max",
+                value: "priceDesc",
+                path: "price",
+                order: "desc"
+            },
+            {
+                label: "По цене min",
+                value: "priceAsk",
+                path: "price",
+                order: "ask"
+            },
+            {
+                label: "Скидка max%",
+                value: "discountDesc",
+                path: "discount",
+                order: "desc"
+            },
+            {
+                label: "Скидка min%",
+                value: "discountAsk",
+                path: "discount",
+                order: "ask"
+            },
+            {
+                label: "Имя max",
+                value: "nameDesc",
+                path: "name",
+                order: "desc"
+            },
+            {
+                label: "Имя min",
+                value: "nameAsk",
+                path: "name",
+                order: "ask"
+            }
+        ];
+        const sortProducts = (pruductsList, sortByList, bySortValue) => {
+            const bySort = sortByList.find(
+                (sortItem) => sortItem.value === bySortValue
+            );
+            return _.orderBy(pruductsList, bySort.path, bySort.order);
+        };
+        const [sortBy, setSortBy] = useState(sortOptions[3].value);
+        const handleChange = (target) => setSortBy(target);
         const categorySelected =
             categories && categories.find((c) => c._id === categoryId);
         const [selectedCategory, setSelectedCategory] = useState(
             categorySelected || null
         );
 
-        useEffect(() => {
-            setSelectedCategory(categorySelected);
-        }, [categorySelected]);
         useEffect(() => {
             setCurrentPage(1);
         }, [selectedCategory]);
@@ -50,8 +107,14 @@ const ShopProductSection = () => {
             };
             const count = filteredProducts.length;
             const pageSize = 9;
-            const productsCrop = paginate(
+
+            const sortedProducts = sortProducts(
                 filteredProducts,
+                sortOptions,
+                sortBy
+            );
+            const productsCrop = paginate(
+                sortedProducts,
                 currentPage,
                 pageSize
             );
@@ -79,6 +142,15 @@ const ShopProductSection = () => {
 
                         <div className="row">
                             <div className="col-12">
+                                <SelectSort
+                                    onChange={handleChange}
+                                    options={sortOptions}
+                                    label="Сортировка товаров"
+                                    value={sortBy}
+                                    name="sorting"
+                                    defaultOption=""
+                                    css={["mt-3 mb-3", null]}
+                                />
                                 <p
                                     className="products-text-number"
                                     id="products-text-number"

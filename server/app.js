@@ -15,6 +15,10 @@ app.use("/api", routes);
 
 const PORT = config.get("port") ?? 7070;
 
+if (process.env.NODE_ENV === 'production') {
+    app.use("/", express.static())
+}
+
 async function start() {
     try {
         mongoose.connection.once("open", () => {

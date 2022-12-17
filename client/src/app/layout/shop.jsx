@@ -12,8 +12,8 @@ const Shoplayout = () => {
     const currentUserData = useSelector(getCurrentUserData());
     const isAdmin = currentUserData?.admin;
     return (
-        <ShopLoader>
-            <main>
+        <main>
+            <ShopLoader>
                 <Switch>
                     {isAdmin && (
                         <Route
@@ -36,8 +36,8 @@ const Shoplayout = () => {
                     )}
                     <Redirect from="*" to="/shop" />
                 </Switch>
-            </main>
-        </ShopLoader>
+            </ShopLoader>
+        </main>
     );
 };
 

@@ -22,22 +22,6 @@ const FooterContactsLinks = () => {
             <li className="footer-contact__item footer-contact__item_social d-flex d-lg-flex justify-content-lg-end">
                 {/* <!--noindex--> */}
                 <a
-                    href="https://www.instagram.com/"
-                    rel="nofollow noopener noreferrer"
-                    target="_blank"
-                    className="footer-contact__social footer-contact__social_instagram d-block"
-                />
-                {/* <!--noindex--> */}
-                {/* <!--noindex--> */}
-                <a
-                    href="https://ru-ru.facebook.com/"
-                    rel="nofollow noopener noreferrer"
-                    target="_blank"
-                    className="footer-contact__social footer-contact__social_facebook d-block"
-                />
-                {/* <!--noindex--> */}
-                {/* <!--noindex--> */}
-                <a
                     href="https://twitter.com/?lang=ru"
                     rel="nofollow noopener noreferrer"
                     target="_blank"

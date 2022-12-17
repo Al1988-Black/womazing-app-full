@@ -216,35 +216,6 @@ button:focus {
     cursor: default;
 }
 
-.links__item_phone-icon {
-    width: 27px;
-    height: 27px;
-    background: url("./app/img/home/phone.svg") no-repeat center center;
-    transition: all 0.5s ease;
-}
-
-.links__item_phone-icon:hover {
-    background: #6e9c9f url("./app/img/home/phonewhite.png") no-repeat center
-        center;
-    transition: all 0.5s ease;
-}
-
-.links__item_number {
-    margin: 0 67px 0 9px;
-}
-
-.links__item_number-link {
-    color: #000;
-    font-size: 15px;
-    font-weight: 400;
-    transition: color 0.5s ease;
-}
-
-.links__item_number-link:hover {
-    color: #6e9c9f;
-    transition: color 0.5s ease;
-}
-
 .links__item_cart {
     position: relative;
 }
@@ -286,34 +257,6 @@ button:focus {
     padding: 70px 58px;
 }
 
-.modal-close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 15px;
-    height: 15px;
-    background: url("./app/img/home/close.svg") no-repeat center center;
-}
-
-.form-title {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.form__input {
-    width: 100%;
-    padding-bottom: 16px;
-    font-family: "Raleway", sans-serif;
-    font-size: 17px;
-    font-weight: 500;
-    border-bottom: 1px solid #000;
-    margin-bottom: 34px;
-}
-
-.form__btn {
-    width: 100%;
-}
-
 /*  section offer  */
 
 .offer-section {
@@ -325,18 +268,6 @@ button:focus {
     );
     overflow: hidden;
 }
-
-/* .offer-section::before {
-	content:'';
-	display: block;
-	background: #F1EADC;
-	position:absolute;
-	z-index: -1;
-	width: 44%;
-	height: 139%;
-	right: 0;
-	top: -79px;
-} */
 
 .offer-slider {
     margin-top: 142px;
@@ -378,24 +309,6 @@ button:focus {
     background: rgba(110, 156, 159, 0.5) url("./app/img/home/arrowdown.svg")
         no-repeat center center;
     transition: all 0.5s ease;
-}
-
-.sliderbtn {
-    width: 30px;
-    height: 4px;
-    background-color: rgba(110, 156, 159, 0.1);
-    transition: background-color 0.5s ease;
-    cursor: pointer;
-    margin-right: 12px;
-}
-
-.sliderbtn:last-child {
-    margin-right: 0;
-}
-
-.sliderbtn.sliderbtn_active {
-    background-color: #000;
-    transition: background-color 0.5s ease;
 }
 
 .offer-img {
@@ -521,15 +434,15 @@ button:focus {
 }
 
 .skill_quality {
-    background: url("./app/img/home/quality.png") no-repeat top left;
+    background: url("./app/img/home/quality.svg") no-repeat top left;
 }
 
 .skill_speed {
-    background: url("./app/img/home/speed.png") no-repeat top left;
+    background: url("./app/img/home/speed.svg") no-repeat top left;
 }
 
 .skill_charge {
-    background: url("./app/img/home/charge.png") no-repeat top left;
+    background: url("./app/img/home/charge.svg") no-repeat top left;
 }
 
 .skill__text {
@@ -649,19 +562,6 @@ button:focus {
 .footer-contact__link:hover {
     color: #6e9c9f;
     transition: color 0.5s ease;
-}
-
-.footer-contact__social_instagram {
-    width: 22px;
-    height: 22px;
-    background: url("./app/img/home/instagram.svg") no-repeat;
-}
-
-.footer-contact__social_facebook {
-    margin: 0 15px;
-    width: 21px;
-    height: 21px;
-    background: url("./app/img/home/facebook.svg") no-repeat;
 }
 
 .footer-contact__social_twitter {
@@ -1017,84 +917,6 @@ button:focus {
 
 .section_title-connect {
     margin-bottom: 67px;
-}
-
-/* Page contacts */
-
-.map {
-    padding: 107px 0 66px;
-}
-
-.map-block {
-    width: 100%;
-    height: 476px;
-    background: #d4d4d4;
-}
-
-.contacts-links {
-    padding: 66px 0 66px;
-}
-
-.contacts-block__title {
-    font-size: 17px;
-    margin-bottom: 20px;
-}
-
-.contacts-block__link {
-    color: #000;
-    font-size: 20px;
-    font-weight: 500;
-    transition: color 0.5s ease;
-}
-
-.contacts-block__link:hover {
-    color: #6e9c9f;
-    transition: color 0.5s ease;
-}
-
-.contacts-form {
-    padding: 66px 0 130px;
-}
-
-.contacts-block__text {
-    font-size: 20px;
-}
-
-.form-write {
-    margin-top: 64px;
-}
-
-.form-write__input {
-    width: 350px;
-    padding-bottom: 16px;
-    font-family: "Raleway", sans-serif;
-    font-size: 17px;
-    font-weight: 500;
-    border-bottom: 1px solid #000;
-    margin-bottom: 34px;
-}
-
-.form-write__textarea {
-    width: 443px;
-    height: 134px;
-    font-family: "Raleway", sans-serif;
-    color: #000;
-    font-size: 17px;
-    font-weight: 500;
-    border-bottom: 1px solid #000;
-    margin-bottom: 35px;
-}
-
-.form-write__btn {
-    width: 189px;
-}
-
-.form-write__ok {
-    margin-top: 62px;
-    width: 437px;
-    text-align: center;
-    padding: 30px 0;
-    background: #f1eadc;
 }
 
 /* Page cart */
@@ -1705,10 +1527,6 @@ button:focus {
         margin: 40px 0;
     }
 
-    .map {
-        padding: 40px 0 40px;
-    }
-
     .contacts-links {
         padding: 40px 0 40px;
     }
@@ -1806,10 +1624,6 @@ button:focus {
 
     .offer {
         max-width: 100%;
-    }
-
-    .slick-dots {
-        bottom: -70px;
     }
 
     .offer-img {
@@ -1927,10 +1741,6 @@ button:focus {
         height: 400px;
     }
 
-    .map-block {
-        height: 350px;
-    }
-
     .form-write__input {
         width: 100%;
     }
@@ -2005,10 +1815,6 @@ button:focus {
 
     .brand-photo {
         height: 360px;
-    }
-
-    .map-block {
-        height: 300px;
     }
 
     .cart-link-product {

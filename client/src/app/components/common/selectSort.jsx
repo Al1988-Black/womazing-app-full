@@ -1,22 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SelectField = ({
+const SelectSort = ({
     value,
     label,
     onChange,
     defaultOption,
     options,
-    name,
-    error,
-    css
+    name
 }) => {
     const handleChange = ({ target }) => {
-        onChange({ name: target.name, value: target.value });
-    };
-
-    const getInputClasses = () => {
-        return "form-select" + (error ? " is-invalid" : "");
+        onChange(target.value);
     };
 
     const optionsArray =
@@ -24,15 +18,13 @@ const SelectField = ({
             ? Object.values(options)
             : options;
     return (
-        <div className={css[0] || "mb-4"}>
-            {label && <label htmlFor={name}>{label}</label>}
-            <select
-                className={css[1] || getInputClasses()}
-                id={name}
-                name={name}
-                value={value}
-                onChange={handleChange}
-            >
+        <div className={"mb-4"}>
+            {label && (
+                <label htmlFor={name} className="d-block mb-1">
+                    {label}
+                </label>
+            )}
+            <select id={name} name={name} value={value} onChange={handleChange}>
                 <option disabled value="">
                     {defaultOption}
                 </option>
@@ -43,23 +35,17 @@ const SelectField = ({
                         </option>
                     ))}
             </select>
-            {error && <div className="invalid-feedback">{error}</div>}
         </div>
     );
 };
-SelectField.defaultProps = {
-    css: ""
-};
 
-SelectField.propTypes = {
+SelectSort.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     name: PropTypes.string,
     label: PropTypes.string,
     onChange: PropTypes.func,
     defaultOption: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    error: PropTypes.string,
-    css: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     options: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
 
-export default SelectField;
+export default SelectSort;

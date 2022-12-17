@@ -2,11 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CartNav from "./cartNav";
 import NavLinks from "./navLinks";
+import useHeightReacher from "../../hooks/useHeightReacher";
 
 const NavBar = () => {
+    const offsetBlurHeight = 40;
+    const { isReached } = useHeightReacher(offsetBlurHeight);
     return (
-        <header className="header header-transparent" id="header">
-            <div className="main-header header-sticky">
+        <header className="header header-transparent">
+            <div
+                className={
+                    !isReached
+                        ? "main-header header-sticky"
+                        : "main-header header-sticky sticky-bar main-header-scroll"
+                }
+            >
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-3">
