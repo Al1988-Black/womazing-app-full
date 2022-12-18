@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const config = require("config");
 const chalk = require("chalk");
 const cors = require("cors"); //импортируем middleware cors
+const path = require("path");
 const initDatebase = require("./startUp/initDatabase");
 const routes = require("./routes");
 
@@ -15,9 +16,21 @@ app.use("/api", routes);
 
 const PORT = config.get("port") ?? 7070;
 
-if (process.env.NODE_ENV === 'production') {
-    app.use("/", express.static())
+if (process.env.NODE_ENV === "production") {
+    app.use("/", express.static(path.join(__dirname, "client")));
+
+    const indexPath = path.join(__dirname, "client", "index.html");
+
+    app.get("*", (req, res) => {
+        res.sendFile(indexPath);
+    });
 }
+
+// if (process.env.NODE_ENV === 'production') {
+//   console.log('Production')
+// } else {
+//   console.log('Development')
+// }
 
 async function start() {
     try {

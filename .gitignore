@@ -21,6 +21,7 @@
 .env.production.local
 
 default.json
+production.json
 
 npm-debug.log*
 yarn-debug.log*
